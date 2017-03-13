@@ -1,5 +1,5 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-import SocketServer, urlparse, subprocess, os, pika
+import SocketServer, urlparse, subprocess, os
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 import BaseHTTPServer
 from os import curdir, sep
