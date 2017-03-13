@@ -63,7 +63,7 @@ class S(BaseHTTPRequestHandler):
         else:
             self.wfile.write("File not found")
         
-def run(server_class=HTTPServer, handler_class=S, port=9001):
+def run(server_class=HTTPServer, handler_class=S, port=80):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print 'Starting httpd... at => ', port
@@ -75,5 +75,5 @@ if __name__ == "__main__":
     if len(argv) == 2:
         run(port=int(argv[1]))
     else:
-	print 'No argument for port. So running at port 8000'
+	print 'Starting the server'
         run()
