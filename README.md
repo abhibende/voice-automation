@@ -1,7 +1,8 @@
 # voice-automation
 The voice instruction for your server.
 
-INSTALLATION : 
+INSTALLATION:
+	
 	1.) Install node ==> yum install node/apt-get install node
 	2.) npm install pm2 -g
 	3.) pm2 start voice.py
