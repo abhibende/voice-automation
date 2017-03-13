@@ -1,0 +1,70 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.icon-large.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./bower_components/platform/platform.js"></script>
+<script src="./bower_components/webspeech/src/webspeech.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+<script>
+		var speaker = new webspeech.Speaker();
+		var listener = new webspeech.Listener();
+		function talk() {
+			speaker.speak("en", document.getElementById("text").value);
+					}
+	 
+	 	function confirmFun(text)
+	 	{
+	 		var vce = 'Abhinav you have requested to'+text+'Press Ok to proceed'
+	 		speaker.speak("en", vce);
+	 		return confirm(text);
+	 	}
+		function listen() {
+			listener.listen("en", function(text) {
+				document.getElementById("text").value = text;
+				var a = confirmFun(text);
+				if(a) {
+
+					$.ajax({
+							type: "POST",
+							//url: "http://172.29.86.27:9000/string",
+							url: 'http://'+ window.location.host + '/string',
+							data : document.getElementById("text").value,
+							
+							success: function(info)
+							{ 
+								$("#result").html(info);
+								speaker.speak("en", info);
+							}
+					});
+				
+				}
+				
+			});
+		}
+	
+</script>
+</head>
+<body  >
+<div align="center" style="position: absolute; top: 50%; left: 50%; margin-right: 50%; transform: translate(-50%, -50%); ">
+		<div>
+				<img src="img/abhi.gif">
+		</div>
+		<div class="input-group">		
+			<div>
+				<input class="form-control" style=" width: 38vh" id="text" disabled>
+			</div>
+   			<div class="input-group-btn" style="left:-23px; z-index : 9999" >
+   				<i class="icon-large icon-microphone" style="opacity:0.6" onclick="listen()"></i>
+		    </div> 
+			
+		</div>
+	<div id="result"></div> 
+	
+</div>
+</body>
+
+</html>
