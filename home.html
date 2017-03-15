@@ -18,7 +18,7 @@
 	 
 	 	function confirmFun(text)
 	 	{
-	 		var vce = 'Abhinav you have requested to'+text+'Press Ok to proceed'
+	 		var vce = 'You have requested to'+text+'Press Ok to proceed'
 	 		speaker.speak("en", vce);
 	 		return confirm(text);
 	 	}
@@ -30,7 +30,6 @@
 
 					$.ajax({
 							type: "POST",
-							//url: "http://172.29.86.27:9000/string",
 							url: 'http://'+ window.location.host + '/string',
 							data : document.getElementById("text").value,
 							
@@ -51,7 +50,7 @@
 <body  >
 <div align="center" style="position: absolute; top: 50%; left: 50%; margin-right: 50%; transform: translate(-50%, -50%); ">
 		<div>
-				<img src="img/abhi.gif">
+				<img src="img/robot.png">
 		</div>
 		<div class="input-group">		
 			<div>
