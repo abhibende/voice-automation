@@ -1,15 +1,26 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.icon-large.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="./bower_components/platform/platform.js"></script>
+	<script src="./bower_components/webspeech/src/webspeech.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+		<style>
+			.outerDiv {width: 40%; margin: 0 auto; height: 1000px; background-color: transparent;}
+			.laLaImage {margin: 20% auto 0 auto; display: block;}
+			.txtInput {margin: 0 10px; height: 40px;}
+			.inputGroup {position: relative;}
+			.inputIcon {position: absolute; right:0; top: 5px;}
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap.icon-large.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="./bower_components/platform/platform.js"></script>
-<script src="./bower_components/webspeech/src/webspeech.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-<script>
+			@media screen and (max-device-width: 480px) {
+				.outerDiv {width: 80%;}
+				.laLaImage {width: 35%; margin: 15% auto 0 auto;}
+			}
+		</style>
+	<script>
 		var speaker = new webspeech.Speaker();
 		var listener = new webspeech.Listener();
 		function talk() {
@@ -45,25 +56,16 @@
 			});
 		}
 	
-</script>
+	</script>
 </head>
-<body  >
-<div align="center" style="position: absolute; top: 50%; left: 50%; margin-right: 50%; transform: translate(-50%, -50%); ">
-		<div>
-				<img src="img/robot.png">
-		</div>
-		<div class="input-group">		
-			<div>
-				<input class="form-control" style=" width: 38vh" id="text" disabled>
+<body>
+		<div class="outerDiv">
+			<img src="img/robot.png" width="25%" class="laLaImage" />
+			<div class="inputGroup">
+				<input class="form-control" id="text" disabled class="txtInput"/>
+				<i class="icon-large icon-microphone inputIcon" style="opacity:0.6" onclick="listen()"></i>
 			</div>
-   			<div class="input-group-btn" style="left:-23px; z-index : 9999" >
-   				<i class="icon-large icon-microphone" style="opacity:0.6" onclick="listen()"></i>
-		    </div> 
-			
 		</div>
-	<div id="result"></div> 
-	
-</div>
 </body>
 
 </html>
