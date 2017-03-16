@@ -36,7 +36,7 @@
 		function listen() {
 					$('#mimg').attr('src','img/listen.jpg');
                     $('#myModal').modal('show');
-                    setTimeout(function(){ $('#myModal').modal('hide'); }, 9000);
+                    //setTimeout(function(){ $('#myModal').modal('hide'); }, 9000);
 					listener.listen("en", function(text) {
 					document.getElementById("text").value = text;
 					var a = confirmFun(text);
