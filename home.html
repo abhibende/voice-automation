@@ -34,9 +34,12 @@
 	 		return confirm(text);
 	 	}
 		function listen() {
-			listener.listen("en", function(text) {
-				document.getElementById("text").value = text;
-				var a = confirmFun(text);
+					$('#mimg').attr('src','img/listen.jpg');
+                    $('#myModal').modal('show');
+                    setTimeout(function(){ $('#myModal').modal('hide'); }, 9000);
+					listener.listen("en", function(text) {
+					document.getElementById("text").value = text;
+					var a = confirmFun(text);
 				if(a) {
 
 					$.ajax({
@@ -67,6 +70,19 @@
 			</div>
 			<div id="result"> </div>
 		</div>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        	<div class="modal-dialog">
+          		<div class="modal-content">
+            		<div class="modal-header">
+              			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              				<h4 class="modal-title" id="myModalLabel">Listening</h4>
+            		</div>
+          			<div class="modal-body">
+            			<img id="mimg" src="" style="width: 60%; height: 25%">
+        	  		</div>
+        		</div>
+      		</div>
+    	</div>
 </body>
 
 </html>
