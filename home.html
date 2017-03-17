@@ -41,7 +41,7 @@
 					document.getElementById("text").value = text;
 					var a = confirmFun(text);
 				if(a) {
-
+					$('#myModal').modal('hide');
 					$.ajax({
 							type: "POST",
 							url: 'http://'+ window.location.host + '/string',
@@ -54,6 +54,7 @@
 							}
 					});
 				
+					$('#myModal').modal('hide');s
 				}
 				
 			});
