@@ -110,7 +110,7 @@
          * @param lang
          */
         this.stop = function() {
-            this.listener.stop();
+            this.listener.stop();z
             console.log("audio listener stopped");
         };
     }
