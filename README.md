@@ -3,7 +3,7 @@ The voice instruction for your server.
 
 INSTALLATION:
 	
-	1.) Install node ==> yum install nodejs/apt-get install nodejs
+	1.) Install node ==> yum install nodejs/apt-get install nodejs nodejs-legacy
 	2.) npm install pm2 -g
 	3.) pm2 start voice.py
 
