@@ -22,7 +22,7 @@ class S(BaseHTTPRequestHandler):
         	string = self.rfile.read(int(self.headers['Content-Length']))
 		print(" The data is  %s" % string)
                 output = subprocess.check_output("sh ./voice.sh '%s'" %string, shell=True)
-		self.wfile.write("Abhinav %s " %output)
+		self.wfile.write("%s " %output)
 		print output
 	elif "LoadBalancer_Healthcheck" in self.path:
 		self.wfile.write("Im working properly bro!!")
