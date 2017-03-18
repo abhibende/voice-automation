@@ -10,5 +10,7 @@ case $cmd in
 *time*) echo "It's `date +\"%H %M\"`";;
 *address|ip*) echo "Your ip address is `ip r l | grep -o "src.*" | awk '{print $2}'`";;
 *lock*)gnome-screensaver-command -l ;;
+*google*|"open google") xdg-open http://www.google.com > /dev/null 2>1 ;;
+*youtube*|"open youtube") xdg-open http://www.youtube.com > /dev/null 2>1 ;;
 *) echo "Not configured";;
 esac
